@@ -1,7 +1,7 @@
 import json
 
 
-class AstronautEncoder(json.JSONEncoder):
+class SpaceEncoder(json.JSONEncoder):
 
     def default(self, o):
         try:

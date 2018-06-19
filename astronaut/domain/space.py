@@ -1,7 +1,7 @@
 from astronaut.shared.domain_model import DomainModel
 
 
-class Astronaut(object):
+class Space(object):
 
     def __init__(self, code, size, price, latitude, longitude):
         self.code = code
@@ -12,7 +12,7 @@ class Astronaut(object):
 
     @classmethod
     def from_dict(cls, adict):
-        room = Astronaut(
+        room = Space(
             code=adict['code'],
             size=adict['size'],
             price=adict['price'],
@@ -23,4 +23,4 @@ class Astronaut(object):
         return room
 
 
-DomainModel.register(Astronaut)
+DomainModel.register(Space)
