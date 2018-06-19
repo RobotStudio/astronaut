@@ -1,0 +1,11 @@
+-r test.txt
+
+pip
+bumpversion
+wheel
+watchdog
+flake8
+Sphinx
+cryptography
+PyYAML
+
