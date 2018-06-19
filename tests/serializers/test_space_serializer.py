@@ -1,7 +1,7 @@
 import json
 
 from astronaut.serializers import space_serializer as srs
-from astronaut.domain.space import Astronaut
+from astronaut.domain.space import Space
 
 
 def test_serialize_domain_space():

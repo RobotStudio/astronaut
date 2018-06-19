@@ -1,8 +1,8 @@
 import pytest
 from unittest import mock
 
-from rentomatic.domain.space import Space
-from rentomatic.use_cases import space_use_cases as uc
+from astronaut.domain.space import Space
+from astronaut.use_cases import space_use_cases as uc
 
 
 @pytest.fixture
