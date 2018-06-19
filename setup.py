@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pip
-
-from pip.req import parse_requirements
+def parse_requirements(filename):
+    """ load requirements from a pip requirements file """
+    lineiter = (line.strip() for line in open(filename))
+    return [line for line in lineiter if line and not line.startswith("#")]
 
 try:
     from setuptools import setup
@@ -17,19 +18,13 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read().replace('.. :changelog:', '')
 
-parsed_requirements = parse_requirements(
-    'requirements/prod.txt',
-    session=pip.download.PipSession()
+requirements = parse_requirements(
+    'requirements/prod.txt'
 )
 
-parsed_test_requirements = parse_requirements(
-    'requirements/test.txt',
-    session=pip.download.PipSession()
+test_requirements = parse_requirements(
+    'requirements/test.txt'
 )
-
-
-requirements = [str(ir.req) for ir in parsed_requirements]
-test_requirements = [str(tr.req) for tr in parsed_test_requirements]
 
 
 setup(
