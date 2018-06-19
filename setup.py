@@ -34,7 +34,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author="Bobby Larson",
     author_email='bobby@robot.studio',
-    url='https://github.com/karma0/astronaut',
+    url='https://github.com/RobotStudio/astronaut',
     packages=[
         'astronaut',
     ],
