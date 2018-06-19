@@ -15,7 +15,7 @@ astronaut
 
 A framework for AI to explore spaces
 
-* Free software: ISC license
+* Free software: GNU General Public License v3.0
 * Documentation: https://astronaut.readthedocs.org.
 
 Features
