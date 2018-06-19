@@ -1,4 +1,4 @@
-from rentomatic.shared.domain_model import DomainModel
+from astronaut.shared.domain_model import DomainModel
 
 
 class Astronaut(object):
