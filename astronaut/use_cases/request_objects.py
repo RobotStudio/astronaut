@@ -9,7 +9,7 @@ class InvalidRequestObject(object):
         self.errors.append({'parameter': param, 'message': msg})
 
     def has_errors(self):
-        return bool(self.errors)
+        return len(self.errors) > 0
 
 
 class ValidRequestObject(object):
