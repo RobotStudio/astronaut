@@ -14,7 +14,7 @@ def test_space_model_init():
     assert space.latitude == 51.75436293
 
 
-def test_astronaut_model_from_dict():
+def test_space_model_from_dict():
     code = uuid.uuid4()
     space = Space.from_dict(
         {
