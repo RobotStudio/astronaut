@@ -2,7 +2,8 @@ import pytest
 from unittest import mock
 
 from astronaut.domain.space import Space
-from astronaut.use_cases import request_objects as ro
+from astronaut.shared import response_object as res
+from astronaut.use_cases import request_objects as req
 from astronaut.use_cases import space_use_cases as uc
 
 
@@ -48,11 +49,59 @@ def test_space_list_without_parameters(domain_spaces):
     repo.list.return_value = domain_spaces
 
     space_list_use_case = uc.SpaceListUseCase(repo)
-    request_object = ro.SpaceListRequestObject.from_dict({})
+    request_object = req.SpaceListRequestObject.from_dict({})
 
     response_object = space_list_use_case.execute(request_object)
 
     assert bool(response_object) is True
-    repo.list.assert_called_with()
+    repo.list.assert_called_with(filters=None)
 
     assert response_object.value == domain_spaces
+
+
+def test_space_list_with_parameters(domain_spaces):
+    repo = mock.Mock()
+    repo.list.return_value = domain_spaces
+
+    space_list_use_case = uc.SpaceListUseCase(repo)
+    qry_filters = {'a': 5}
+    request_object = \
+        req.SpaceListRequestObject.from_dict({'filters': qry_filters})
+
+    response_object = space_list_use_case.execute(request_object)
+
+    assert bool(response_object) is True
+    repo.list.assert_called_with(filters=qry_filters)
+
+    assert response_object.value == domain_spaces
+
+
+def test_space_list_handles_generic_error():
+    repo = mock.Mock()
+    repo.list.side_effect = Exception('Just an error message')
+
+    space_list_use_case = uc.SpaceListUseCase(repo)
+    request_object = req.SpaceListRequestObject.from_dict({})
+
+    response_object = space_list_use_case.execute(request_object)
+
+    assert bool(response_object) is False
+    assert response_object.value == {
+        'type': res.ResponseFailure.SYSTEM_ERROR,
+        'message': "Exception: Just an error message"
+    }
+
+
+def test_space_list_handles_bad_request():
+    repo = mock.Mock()
+
+    space_list_use_case = uc.SpaceListUseCase(repo)
+    request_object = req.SpaceListRequestObject.from_dict({'filters': 5})
+
+    response_object = space_list_use_case.execute(request_object)
+
+    assert bool(response_object) is False
+    assert response_object.value == {
+        'type': res.ResponseFailure.PARAMETERS_ERROR,
+        'message': "filters: Is not iterable"
+    }

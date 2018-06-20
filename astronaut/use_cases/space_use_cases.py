@@ -1,4 +1,4 @@
-from astronaut.shared import response_object as ro
+from astronaut.shared import response_object as res
 
 
 class SpaceListUseCase(object):
@@ -6,5 +6,13 @@ class SpaceListUseCase(object):
         self.repo = repo
 
     def execute(self, request_object):
-        space = self.repo.list()
-        return ro.ResponseSuccess(space)
+        if not request_object:
+            return res.ResponseFailure\
+                .build_from_invalid_request_object(request_object)
+        try:
+            spaces = self.repo.list(filters=request_object.filters)
+            return res.ResponseSuccess(spaces)
+        except Exception as exc:
+            return res.ResponseFailure.build_system_error(
+                "{}: {}".format(exc.__class__.__name__,
+                                "{}".format(exc)))

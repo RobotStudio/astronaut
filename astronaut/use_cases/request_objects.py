@@ -1,40 +1,15 @@
 import collections
 
-
-class InvalidRequestObject(object):
-    def __init__(self):
-        self.errors = []  # type: dict
-
-    def add_error(self, param, msg):
-        self.errors.append({'parameter': param, 'message': msg})
-
-    def has_errors(self):
-        return len(self.errors) > 0
-
-    def __nonzero__(self):
-        return False
-
-    __bool__ = __nonzero__
+from astronaut.shared import request_object as req
 
 
-class ValidRequestObject(object):
-    @classmethod
-    def from_dict(cls, adict):
-        raise NotImplementedError
-
-    def __nonzero__(self):
-        return True
-
-    __bool__ = __nonzero__
-
-
-class SpaceListRequestObject(object):
+class SpaceListRequestObject(req.ValidRequestObject):
     def __init__(self, filters=None):
         self.filters = filters
 
     @classmethod
     def from_dict(cls, adict):
-        invalid_req = InvalidRequestObject()
+        invalid_req = req.InvalidRequestObject()
 
         if 'filters' in adict and \
                 not isinstance(adict['filters'], collections.Mapping):
