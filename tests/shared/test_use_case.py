@@ -15,7 +15,7 @@ def test_use_case_cannot_process_valid_requests():
 
     assert not response
     assert response.type == res.ResponseFailure.SYSTEM_ERROR
-    assert response.messag == \
+    assert response.message == \
         'NotImplementedError: process_request() ' \
         'not implemented by UseCase class'
 

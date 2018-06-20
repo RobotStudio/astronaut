@@ -2,8 +2,8 @@ class InvalidRequestObject(object):
     def __init__(self):
         self.errors = []  # type: dict
 
-    def add_error(self, param, msg):
-        self.errors.append({'parameter': param, 'message': msg})
+    def add_error(self, parameter, message):
+        self.errors.append({'parameter': parameter, 'message': message})
 
     def has_errors(self):
         return len(self.errors) > 0
