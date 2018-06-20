@@ -11,6 +11,11 @@ class InvalidRequestObject(object):
     def has_errors(self):
         return len(self.errors) > 0
 
+    def __nonzero__(self):
+        return False
+
+    __bool__ = __nonzero__
+
 
 class ValidRequestObject(object):
     @classmethod
