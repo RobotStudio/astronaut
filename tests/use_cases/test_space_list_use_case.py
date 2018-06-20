@@ -2,6 +2,7 @@ import pytest
 from unittest import mock
 
 from astronaut.domain.space import Space
+from astronaut.use_cases import request_objects as ro
 from astronaut.use_cases import space_use_cases as uc
 
 
@@ -47,7 +48,11 @@ def test_space_list_without_parameters(domain_spaces):
     repo.list.return_value = domain_spaces
 
     space_list_use_case = uc.SpaceListUseCase(repo)
-    result = space_list_use_case.execute()
+    request_object = ro.SpaceListRequestObject.from_dict({})
 
+    response_object = space_list_use_case.execute(request_object)
+
+    assert bool(response_object) is True
     repo.list.assert_called_with()
-    assert result == domain_spaces
+
+    assert response_object.value == domain_spaces
