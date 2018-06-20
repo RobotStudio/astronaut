@@ -1,18 +1,11 @@
+from astronaut.shared import use_case as uc
 from astronaut.shared import response_object as res
 
 
-class SpaceListUseCase(object):
+class SpaceListUseCase(uc.UseCase):
     def __init__(self, repo):
         self.repo = repo
 
-    def execute(self, request_object):
-        if not request_object:
-            return res.ResponseFailure\
-                .build_from_invalid_request_object(request_object)
-        try:
-            spaces = self.repo.list(filters=request_object.filters)
-            return res.ResponseSuccess(spaces)
-        except Exception as exc:
-            return res.ResponseFailure.build_system_error(
-                "{}: {}".format(exc.__class__.__name__,
-                                "{}".format(exc)))
+    def process_request(self, request_object):
+        domain_space = self.repo.list(filters=request_object.filters)
+        return res.ResponseSuccess(domain_space)
