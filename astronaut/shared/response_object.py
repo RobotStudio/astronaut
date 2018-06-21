@@ -12,9 +12,9 @@ class ResponseSuccess(object):
 
 
 class ResponseFailure(object):
-    RESOURCE_ERROR = 'ResourceError'
-    PARAMETERS_ERROR = 'ParametersError'
-    SYSTEM_ERROR = 'SystemError'
+    RESOURCE_ERROR = 'RESOURCE_ERROR'
+    PARAMETERS_ERROR = 'PARAMETERS_ERROR'
+    SYSTEM_ERROR = 'SYSTEM_ERROR'
 
     def __init__(self, type_, message):
         self.type = type_
@@ -29,10 +29,8 @@ class ResponseFailure(object):
     def value(self):
         return {'type': self.type, 'message': self.message}
 
-    def __nonzero__(self):
+    def __bool__(self):
         return False
-
-    __bool__ = __nonzero__
 
     @classmethod
     def build_resource_error(cls, message=None):

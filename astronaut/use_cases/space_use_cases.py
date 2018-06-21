@@ -3,6 +3,7 @@ from astronaut.shared import response_object as res
 
 
 class SpaceListUseCase(uc.UseCase):
+
     def __init__(self, repo):
         self.repo = repo
 

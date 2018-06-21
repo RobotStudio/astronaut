@@ -1,9 +1,10 @@
-from astronaut.domain import space
+from astronaut.domain import space as sr
 
 
 class MemRepo:
+
     def __init__(self, entries=None):
-        self._entries = []  # type: list
+        self._entries = []
         if entries:
             self._entries.extend(entries)
 
@@ -20,7 +21,7 @@ class MemRepo:
 
         if key in ['size', 'price']:
             return getattr(element[key], operator)(int(value))
-        elif key in ['lattitude', 'longitude']:
+        elif key in ['latitude', 'longitude']:
             return getattr(element[key], operator)(float(value))
 
         return getattr(element[key], operator)(value)
@@ -29,10 +30,10 @@ class MemRepo:
         if not filters:
             return self._entries
 
-        result = []  # type: list
+        result = []
         result.extend(self._entries)
 
-        for key, val in filters.items():
-            result = [e for e in result if self._check(e, key, val)]
+        for key, value in filters.items():
+            result = [e for e in result if self._check(e, key, value)]
 
-        return [space.Space.from_dict(r) for r in result]
+        return [sr.Space.from_dict(r) for r in result]

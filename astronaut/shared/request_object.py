@@ -1,6 +1,7 @@
 class InvalidRequestObject(object):
+
     def __init__(self):
-        self.errors = []  # type: dict
+        self.errors = []
 
     def add_error(self, parameter, message):
         self.errors.append({'parameter': parameter, 'message': message})
@@ -15,6 +16,7 @@ class InvalidRequestObject(object):
 
 
 class ValidRequestObject(object):
+
     @classmethod
     def from_dict(cls, adict):
         raise NotImplementedError
