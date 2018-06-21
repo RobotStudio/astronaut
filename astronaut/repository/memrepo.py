@@ -33,6 +33,6 @@ class MemRepo:
         result.extend(self._entries)
 
         for key, val in filters.items():
-            result = [e for e in result if self._check(e, key, value)]
+            result = [e for e in result if self._check(e, key, val)]
 
         return [space.Space.from_dict(r) for r in result]

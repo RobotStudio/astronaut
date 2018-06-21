@@ -76,10 +76,10 @@ def test_repository_list_with_filters_price(spaces):
 
 def test_repository_list_with_filters_size(spaces):
     repo = memrepo.MemRepo(spaces)
-    _check_results(repo.list(filters={'price': 93}), [space3])
-    _check_results(repo.list(filters={'price__eq': 93}), [space3])
-    _check_results(repo.list(filters={'price__lt': 60}), [space1, space4])
-    _check_results(repo.list(filters={'price__gt': 400}), [space2])
+    _check_results(repo.list(filters={'size': 93}), [space4])
+    _check_results(repo.list(filters={'size__eq': 93}), [space4])
+    _check_results(repo.list(filters={'size__lt': 60}), [space3])
+    _check_results(repo.list(filters={'size__gt': 400}), [space2])
 
 
 def test_repository_list_with_filters_code(spaces):
