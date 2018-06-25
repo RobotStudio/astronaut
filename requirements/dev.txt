@@ -10,4 +10,4 @@ pytest
 tox
 coverage
 pytest-cov
-apiwrapper
+apiwrapper==0.1.8
