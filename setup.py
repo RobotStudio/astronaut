@@ -7,9 +7,9 @@ def parse_requirements(filename):
     return [line for line in lineiter if line and not line.startswith("#")]
 
 try:
-    from setuptools import setup
+    from setuptools import setup, find_packages
 except ImportError:
-    from distutils.core import setup
+    from distutils.core import setup, find_packages
 
 
 with open('README.rst') as readme_file:
@@ -35,9 +35,7 @@ setup(
     author="Bobby Larson",
     author_email='bobby@robot.studio',
     url='https://github.com/RobotStudio/astronaut',
-    packages=[
-        'astronaut',
-    ],
+    packages=find_packages(exclude=['docs', 'tests']),
     package_dir={'astronaut':
                  'astronaut'},
     include_package_data=True,
@@ -56,6 +54,8 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
     test_suite='tests',
     tests_require=test_requirements
