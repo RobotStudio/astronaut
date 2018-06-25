@@ -60,3 +60,6 @@ target/
 
 # mypy cache
 .mypy_cache
+
+# pyenv local configuration
+.python-version
