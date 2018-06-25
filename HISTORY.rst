@@ -3,6 +3,11 @@
 History
 -------
 
+0.1.3 (2018-06-25)
+---------------------
+
+* Fixed the pyenv interference with travis-ci builds
+
 0.1.2 (2018-06-25)
 ---------------------
 
