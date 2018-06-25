@@ -29,7 +29,7 @@ test_requirements = parse_requirements(
 
 setup(
     name='astronaut',
-    version='0.1.0',
+    version='0.1.1',
     description="A framework for AI to explore spaces",
     long_description=readme + '\n\n' + history,
     author="Bobby Larson",
