@@ -1,5 +1,6 @@
 language: python
 env:
+- TOXENV=py36
 - TOXENV=py35
 - TOXENV=py34
 - TOXENV=py33
@@ -17,4 +18,4 @@ deploy:
   on:
     tags: true
     repo: karma0/astronaut
-    condition: "$TOXENV == py27"
+    condition: "$TOXENV == py36"
