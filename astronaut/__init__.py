@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-__author__ = 'Bobby Larson'
-__email__ = 'bobby@robot.studio'
-__version__ = '0.1.0'
+__author__ = 'Bobby'
+__email__ = 'karma0@gmail.com'
+__version__ = '0.1.1'
 
-from astronaut import Astronaut
+from astronaut import *
