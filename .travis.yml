@@ -5,7 +5,7 @@ python:
 - "3.3"
 - "2.7"
 - "2.6"
-install: pip install -U tox
+install: pip install -U tox-travis
 script: tox
 deploy:
   provider: pypi
