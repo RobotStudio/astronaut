@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-def parse_requirements(filename):
-    """ load requirements from a pip requirements file """
-    lineiter = (line.strip() for line in open(filename))
-    return [line for line in lineiter if line and not line.startswith("#")]
-
 try:
     from setuptools import setup, find_packages
 except ImportError:
@@ -18,13 +13,16 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read().replace('.. :changelog:', '')
 
-requirements = parse_requirements(
-    'requirements/prod.txt'
-)
+requirements = [
+    'apiwrapper'
+]
 
-test_requirements = parse_requirements(
-    'requirements/test.txt'
-)
+test_requirements = [
+    'pytest',
+    'tox',
+    'coverage',
+    'pytest-cov',
+]
 
 
 setup(
