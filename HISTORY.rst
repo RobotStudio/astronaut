@@ -3,6 +3,11 @@
 History
 -------
 
+0.1.4 (2018-06-25)
+---------------------
+
+* Fixed flake8 complaints, correctly configureds travis-ci
+
 0.1.3 (2018-06-25)
 ---------------------
 
