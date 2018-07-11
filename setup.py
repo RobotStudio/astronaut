@@ -27,7 +27,7 @@ test_requirements = [
 
 setup(
     name='astronaut',
-    version='0.1.4',
+    version='0.1.5',
     description="A framework for AI to explore spaces",
     long_description=readme + '\n\n' + history,
     author="Bobby Larson",
