@@ -5,8 +5,8 @@ astronaut
 .. image:: https://img.shields.io/pypi/v/astronaut.svg
         :target: https://pypi.python.org/pypi/astronaut
 
-.. image:: https://img.shields.io/travis/karma0/astronaut.svg
-        :target: https://travis-ci.org/karma0/astronaut
+.. image:: https://img.shields.io/travis/RobotStudio/astronaut.svg
+        :target: https://travis-ci.org/RobotStudio/astronaut
 
 .. image:: https://readthedocs.org/projects/astronaut/badge/?version=latest
         :target: https://readthedocs.org/projects/astronaut/?badge=latest

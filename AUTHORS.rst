@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* Bobby Larson <bobby@robot.studio>
+* Bobby Larson <karma0@gmail.com>
 
 Contributors
 ------------

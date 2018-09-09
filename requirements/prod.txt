@@ -1,1 +1,1 @@
-apiwrapper
+apiwrapper==0.1.8

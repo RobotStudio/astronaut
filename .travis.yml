@@ -1,31 +1,17 @@
-# Config file for automatic testing at travis-ci.org
-# This file will be regenerated if you run travis_pypi_setup.py
-
 language: python
-
-env:
-  - TOXENV=py35
-  - TOXENV=py34
-  - TOXENV=py33
-  - TOXENV=py27
-  - TOXENV=py26
-  - TOXENV=pypy
-
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox
-
-# command to run tests, e.g. python setup.py test
+python:
+- "3.6"
+- "3.5"
+- "3.4"
+install: pip install -U tox-travis
 script: tox
-
-# After you create the Github repo and add it to Travis, run the
-# travis_pypi_setup.py script to finish PyPI deployment setup
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: karma0
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: A2H8pjf9EBTDC/lrmuemuXg3TGR7Cok3ujjMybK5IS0vsRD0VY8ddz5yZHxWSzOJhU8CvTnjril5Ib6WGCoh49JPGvx2Q3k0BDP/dwdhksSdvxALi47fckvKOO5qvEIUZXPCOu7dHoFtAesRlfOLlxauNifCV3M8mG48J6tITKNaZ0E/bD0/BomdSw5Me04KxT8qlTRf4/0z2pIBqpe/t7KW+BZbJl0HydSny80ZXyUIYFQbazhVpkak7xsisEaulNAYZtZvd9q1QxsgGr2oY146m2uiJBDC9zqgc6zFJkYHWdChCmw2YP1ywGPJSvQfMCOPAGrWwem9f9VcX3CDxZ/jwRGeWRvhnxU0I4mSrBclE8LCJitbyOcC6taJWwBxivWaf9VupiTYTq7LyQT0qj1dZZ2RwR7wj0+MX9PwLMwrVYDiRE8yxI3oamKjx6cmWspalOt7wws+QiFwh/CTURxbzVGXdgV2sCUus8LeODMW+80e2ktvKG3TMufFqCwzVkglWSkOUH9sIh4TkG/HrKwdgmzJEwP0yaHz4B2P8VzgrMGrFsgMZswznhGeVx/LRNHhjI4FxJlcPg/rWFyXkIoIoyMAledIAybXPaXF99adeGbRSY+mZfcq158O0mb4G4bLl2vyCE3w13Ja4Q9xoHu4iwWLvma3ZNCftJYMlRU=
   on:
     tags: true
-    repo: karma0/astronaut
-    condition: $TOXENV == py27
+    repo: RobotStudio/astronaut
+    python: 3.6
