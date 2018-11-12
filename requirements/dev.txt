@@ -5,7 +5,7 @@ wheel==0.32.2
 flake8==3.6.0
 PyYAML==3.13
 Sphinx==1.8.1
-cryptography==2.3.1
+cryptography==2.4.1
 tox==3.5.3
 pytest==3.10.0
 coverage==4.5.1
