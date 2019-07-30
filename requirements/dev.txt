@@ -6,7 +6,7 @@ Sphinx==2.1.2
 flake8==3.7.7
 tox==3.13.1
 cryptography==2.7
-coverage==4.5.3
+coverage==4.5.4
 pytest-cov==2.7.1
 pytest==4.6.3
 apiwrapper==0.1.8
